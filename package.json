@@ -1,0 +1,63 @@
+{
+  "name": "roadmap-pipeline",
+  "version": "0.1.0",
+  "description": "Autonomous DDD + SDD + BDD delivery pipeline: kanban on disk, four dispatched roles, auditable gates.",
+  "keywords": [
+    "agents",
+    "ai-agents",
+    "bdd",
+    "claude-code",
+    "code-review",
+    "codex",
+    "dd d",
+    "kanban",
+    "opencode",
+    "sdd",
+    "skill",
+    "tdd"
+  ],
+  "homepage": "https://github.com/CrissACM/roadmap-pipeline#readme",
+  "bugs": {
+    "url": "https://github.com/CrissACM/roadmap-pipeline/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "crissacm",
+    "email": "crissacmdev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrissACM/roadmap-pipeline.git"
+  },
+  "bin": {
+    "roadmap-pipeline": "./bin/cli.ts"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "profiles",
+    "consumers",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "bun test tests/",
+    "lint": "oxlint .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run test && bun run lint"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.0",
+    "oxfmt": "^0.66.0",
+    "oxlint": "^1.81.0",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "bun": ">=1.3.0"
+  },
+  "packageManager": "bun@1.3.14"
+}

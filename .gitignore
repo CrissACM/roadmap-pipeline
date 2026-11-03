@@ -1,0 +1,8 @@
+node_modules/
+.install-backups/
+.DS_Store
+*.log
+dist/
+coverage/
+.tmp/
+*.tgz
