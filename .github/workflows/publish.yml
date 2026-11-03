@@ -22,6 +22,16 @@ jobs:
       - run: bun run test
       - run: bun run lint
 
-      - run: npm publish --provenance --access public
+      # npm does not read NODE_AUTH_TOKEN by itself: it must be referenced from
+      # an .npmrc. Keep it outside the repo so nothing is ever packed with it.
+      - name: npm auth
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > "$RUNNER_TEMP/.npmrc"
+          echo "NPM_CONFIG_USERCONFIG=$RUNNER_TEMP/.npmrc" >> "$GITHUB_ENV"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: verify token
+        run: npm whoami
+
+      - run: npm publish --provenance --access public
